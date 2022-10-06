@@ -1,0 +1,26 @@
+import ReactDOM from 'react-dom';
+import classes from './Modal.module.css'
+
+const Backdrop = ({ onCartVisible }) => {
+  const closeHandler = (event) => {
+    onCartVisible(false);
+  };
+
+  return (
+    <div className={classes.backdrop} onClick={closeHandler} />
+  )
+};
+const ModalElement = ({ children }) => <div className={classes.modal}>{children}</div>
+
+const Modal = ({ children, onCartVisible }) => {
+  const portalElement = document.querySelector('#overlays');
+
+  return (
+    <>
+      {ReactDOM.createPortal(<Backdrop onCartVisible={onCartVisible} />, portalElement)}
+      {ReactDOM.createPortal(<ModalElement>{children}</ModalElement>, portalElement)}
+    </>
+  )
+};
+
+export default Modal;
