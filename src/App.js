@@ -6,14 +6,18 @@ import Meals from './components/Meals/Meals';
 function App() {
   const [isCartShown, setIsCartShown] = useState(false);
 
-  const visibilityCartHandler = (isVisible) => {
-    setIsCartShown(isVisible);
+  const showCartHandler = () => {
+    setIsCartShown(true);
   };
+
+  const hideCartHandler = () => {
+    setIsCartShown(false);
+  }
 
   return (
     <>
-      {isCartShown && <Cart onCartVisible={visibilityCartHandler} />}
-      <Header onCartVisible={visibilityCartHandler} />
+      {isCartShown && <Cart onCartHide={hideCartHandler} />}
+      <Header onCartShow={showCartHandler} />
       <main>
         <Meals />
       </main>
