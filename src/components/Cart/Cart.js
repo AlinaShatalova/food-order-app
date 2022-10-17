@@ -5,14 +5,19 @@ import Modal from '../UI/Modal';
 import classes from './Cart.module.css';
 
 const Cart = ({ onCartHide }) => {
-  const { items, totalAmount } = useContext(CartContext);
+  const {
+    items,
+    totalAmount,
+    addItem,
+    removeItem,
+  } = useContext(CartContext);
 
   const addToCartHandler = (item) => {
-
+    addItem(item);
   };
 
   const removeFromCartHandler = (id) => {
-
+    removeItem(id);
   };
 
   const cartItems = (<ul className={classes['cart-items']}>
