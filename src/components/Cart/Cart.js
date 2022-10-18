@@ -12,8 +12,11 @@ const Cart = ({ onCartHide }) => {
     removeItem,
   } = useContext(CartContext);
 
+  const totalAmountFormatted = `$${Math.abs(totalAmount).toFixed(2)}`;
+  const hasItems = items.length > 0;
+
   const addToCartHandler = (item) => {
-    addItem(item);
+    addItem({ ...item, amount: 1 });
   };
 
   const removeFromCartHandler = (id) => {
@@ -29,9 +32,6 @@ const Cart = ({ onCartHide }) => {
       onRemove={removeFromCartHandler.bind(null, item.id)}
     />)}
   </ul>);
-
-  const totalAmountFormatted = `$${totalAmount.toFixed(2)}`;
-  const hasItems = items.length > 0;
 
   return (
     <Modal onCartHide={onCartHide}>
