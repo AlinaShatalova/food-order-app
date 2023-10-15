@@ -2,10 +2,10 @@
 
 technologies used in the project:
 
-- useReducer,
-- useEffect,
-- useRef and React.forwardRef,
-- useContext.
+- useReducer
+- useEffect
+- useRef and React.forwardRef
+- useContext
 
 ## Demo
 
